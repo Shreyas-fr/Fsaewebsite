@@ -19,8 +19,9 @@ export const Recruitment = () => {
     const formData = new FormData(formRef.current);
     formData.append('subTeam', selectedTeam);
     
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3005';
     try {
-      const response = await fetch('http://localhost:3005/api/apply', {
+      const response = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         // Fetch API handles the multipart/form-data boundary automatically!
         body: formData

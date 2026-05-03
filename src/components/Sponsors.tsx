@@ -23,8 +23,9 @@ export const Sponsors = () => {
       message: formData.get('message')
     };
     
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3005';
     try {
-      const response = await fetch('http://localhost:3005/api/sponsor', {
+      const response = await fetch(`${API_URL}/api/sponsor`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataObj)
